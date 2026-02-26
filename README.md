@@ -9,7 +9,7 @@
 
 > 🔒 **Wireless Network Auditing Tool for Educational & Security Research Purposes**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Requirements](#-requirements) • [Disclaimer](#-legal-disclaimer)
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage-guide) • [Requirements](#-requirements)
 
 </div>
 
@@ -122,5 +122,6 @@ sudo rfkill unblock all
 
 # 3. Run with sudo privileges
 sudo python3 wifi-crasher.py
+
 # 5. Run the tool
 sudo python3 wifi-crasher.py
