@@ -123,4 +123,5 @@ sudo rfkill unblock all
 # 3. Run with sudo privileges
 sudo python3 wifi-crasher.py
 
-
+# 5. Run the tool
+sudo python3 wifi-crasher.py
