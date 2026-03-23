@@ -17,7 +17,7 @@
 
 ## 📖 Overview
 
-WiFi Crasher Tool is a **Python-based wireless security auditing suite** designed for ethical hackers, security researchers, and network administrators. It automates the process of scanning wireless networks, analyzing signal strength, and performing security tests using the industry-standard `aircrack-ng` suite.
+WiFi Crasher Tool is a **Python-based wireless security auditing suite** designed for ethical hackers, security researchers, and network administrators. It automates the process of scanning wireless networks, analyzing signal strength, and performing deauthentication tests using the industry-standard `aircrack-ng` suite.
 
 ### ⚠️ Important Notice
 
