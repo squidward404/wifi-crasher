@@ -15,6 +15,12 @@
 
 ---
 
+<div align="center">
+<img src="pic.png" alt="WiFi Crasher Tool Screenshot" width="800">
+</div>
+
+---
+
 ## 📖 Overview
 
 WiFi Crasher Tool is a **Python-based wireless security auditing suite** designed for ethical hackers, security researchers, and network administrators. It automates the process of scanning wireless networks, analyzing signal strength, and performing deauthentication tests using the industry-standard `aircrack-ng` suite.
@@ -68,7 +74,7 @@ WiFi Crasher Tool is a **Python-based wireless security auditing suite** designe
 
 ## 🚀 Installation
 
-### 🐧 Linux (Ubuntu/Debian/Zorin/Kali)
+🐧 Linux (Ubuntu/Debian/Zorin/Kali)
 
 ```bash
 # 1. Update package list
@@ -83,8 +89,10 @@ cd wifi-crasher
 
 # 4. Make executable (optional)
 chmod +x wifi-crasher.py
+
 # 5. Run the tool
 sudo python3 wifi-crasher.py
+
 🍎 macOS
 # 1. Install Homebrew (if not installed)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -98,6 +106,7 @@ cd wifi-crasher
 
 # 4. Run the tool
 sudo python3 wifi-crasher.py
+
 🪟 Windows (WSL2 Recommended)
 # 1. Install WSL2 (Windows Subsystem for Linux)
 # Open PowerShell as Administrator and run:
@@ -115,6 +124,7 @@ cd wifi-crasher
 
 # 5. Run the tool
 sudo python3 wifi-crasher.py
+
 📖 Usage Guide
 # 1. Navigate to the tool directory
 cd wifi-crasher
@@ -123,7 +133,4 @@ cd wifi-crasher
 sudo rfkill unblock all
 
 # 3. Run with sudo privileges
-sudo python3 wifi-crasher.py
-
-# 5. Run the tool
 sudo python3 wifi-crasher.py
