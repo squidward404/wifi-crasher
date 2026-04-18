@@ -92,8 +92,9 @@ chmod +x wifi-crasher.py
 
 # 5. Run the tool
 sudo python3 wifi-crasher.py
-
+```
 🍎 macOS
+```
 # 1. Install Homebrew (if not installed)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -106,8 +107,9 @@ cd wifi-crasher
 
 # 4. Run the tool
 sudo python3 wifi-crasher.py
-
+```
 🪟 Windows (WSL2 Recommended)
+```
 # 1. Install WSL2 (Windows Subsystem for Linux)
 # Open PowerShell as Administrator and run:
 wsl --install
@@ -124,8 +126,9 @@ cd wifi-crasher
 
 # 5. Run the tool
 sudo python3 wifi-crasher.py
-
+```
 📖 Usage Guide
+```
 # 1. Navigate to the tool directory
 cd wifi-crasher
 
