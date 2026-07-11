@@ -3,7 +3,6 @@
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-2ea44f)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20WSL2-0366d6)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
@@ -131,6 +130,4 @@ Issues and pull requests are welcome. If you are reporting a bug, include:
 - Steps to reproduce
 - Relevant terminal output
 
-## License
 
-Released under the MIT License.
